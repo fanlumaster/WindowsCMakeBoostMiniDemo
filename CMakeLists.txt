@@ -14,11 +14,9 @@ set(CMAKE_PREFIX_PATH "C:/Users/SonnyCalcr/EDisk/CppCodes/Libraries/AllLibs")
 find_package(fmt REQUIRED)
 find_package(spdlog REQUIRED)
 
-# set(SQLite3_DIR "C:/Users/SonnyCalcr/EDisk/CppCodes/Libraries/AllLibs/lib/cmake/SQLite3")
-# find_package(SQLite3 REQUIRED)
+# Notice: we need to use CONFIG option to find SQLite3, 
+# otherwise it will use CMake built-in FindSQLite3.cmake
 find_package(SQLite3 REQUIRED CONFIG)
-# include("${SQLite3_DIR}/SQLite3Targets.cmake")
-# include("${SQLite3_DIR}/SQLite3Config.cmake")
 message(STATUS "SQLite3 found: ${SQLite3_FOUND}")
 message(STATUS "SQLite3 config: ${SQLite3_DIR}")
 message(STATUS "SQLite3 include dirs: ${SQLite3_INCLUDE_DIRS}")
