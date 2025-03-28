@@ -14,6 +14,16 @@ set(CMAKE_PREFIX_PATH "C:/Users/SonnyCalcr/EDisk/CppCodes/Libraries/AllLibs")
 find_package(fmt REQUIRED)
 find_package(spdlog REQUIRED)
 
+# set(SQLite3_DIR "C:/Users/SonnyCalcr/EDisk/CppCodes/Libraries/AllLibs/lib/cmake/SQLite3")
+# find_package(SQLite3 REQUIRED)
+find_package(SQLite3 REQUIRED CONFIG)
+# include("${SQLite3_DIR}/SQLite3Targets.cmake")
+# include("${SQLite3_DIR}/SQLite3Config.cmake")
+message(STATUS "SQLite3 found: ${SQLite3_FOUND}")
+message(STATUS "SQLite3 config: ${SQLite3_DIR}")
+message(STATUS "SQLite3 include dirs: ${SQLite3_INCLUDE_DIRS}")
+message(STATUS "SQLite3 libraries: ${SQLite3_LIBRARIES}")
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_definitions(
@@ -31,4 +41,4 @@ set(
 
 add_executable(${MY_EXECUTABLE_NAME} ${SOURCE_FILES})
 
-target_link_libraries(${MY_EXECUTABLE_NAME} Boost::locale fmt::fmt spdlog::spdlog)
+target_link_libraries(${MY_EXECUTABLE_NAME} Boost::locale fmt::fmt spdlog::spdlog SQLite3::sqlite3)
